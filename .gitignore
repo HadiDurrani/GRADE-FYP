@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+db.sqlite3
+
+# Testing
+.coverage
+*.cover
+.tox/
+.nox/
+coverage.xml
+*.codecov.yml
+
+# Virtual environment
+env/
+venv/
+ENV/
+venv.bak/
+*.env
+
+# Machine-specific files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# WandB files
+wandb/
+checkpoint-*

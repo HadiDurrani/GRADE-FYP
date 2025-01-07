@@ -1,0 +1,257 @@
+[
+  {
+    "question": "What are the main differences between mutable and immutable data types? Provide examples using strings.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain the purpose of escape sequences in strings with examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What are string slicing and indexing in Python? Provide examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the performance implications of string concatenation in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between the `find()` and `index()` methods in Python strings?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python function that takes a string and returns the number of vowels and consonants in it.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python program to reverse a string without using built-in reverse functions.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python program to check if a given string is a palindrome.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script that counts the occurrence of each word in a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python function that removes all duplicate characters from a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "What is the purpose of the `join()` method in Python strings? Provide examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain how Python handles Unicode and encoding in strings.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between `isalpha()`, `isdigit()`, and `isalnum()` string methods? Provide examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the use of formatted strings (f-strings) in Python with examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `strip()`, `lstrip()`, and `rstrip()` methods in Python?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python function to find all substrings of a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python program to capitalize the first letter of every word in a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python script to count the number of uppercase and lowercase letters in a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python function to find the longest word in a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python program to replace all occurrences of a substring with another substring.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "What are the common pitfalls when working with strings in Python?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain how to use the `partition()` and `split()` methods for string manipulation in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the use of raw strings in Python. When should they be used?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between string comparison using `==` and `is` in Python?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Create a Python program to remove all spaces from a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python function to count the occurrence of a character in a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python program to merge two strings alternately.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python script to check if a string contains only unique characters.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python function to extract all numeric characters from a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Explain the use of slicing to reverse a string in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the difference between `startswith()` and `endswith()` methods in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What are multiline strings in Python, and how are they created?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python program to split a string into a list of words and sort them alphabetically.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script to check if two strings are anagrams.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python function to find the first non-repeating character in a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python program to remove punctuation from a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "What is the purpose of the `replace()` method in Python strings? Provide examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain how string interning works in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the immutability of strings in Python and its implications for string manipulation.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `zfill()` method in Python strings?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python program to pad a string to a fixed width with spaces.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script to find all permutations of a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python function to check if a string ends with a specific suffix.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python program to convert a string to title case.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python script to split a string at each occurrence of a specific character.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "What are the advantages of using Python's `str` module for string manipulation?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain the difference between `splitlines()` and `split()` methods in Python strings.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the concept of string encoding and decoding in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `expandtabs()` method in Python strings?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python function to count the frequency of each character in a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python program to generate all substrings of a given string.",
+    "clo": "Strings",
+    "type": "code"
+  }
+]

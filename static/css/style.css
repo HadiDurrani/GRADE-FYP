@@ -1,0 +1,149 @@
+body {
+    background: linear-gradient(120deg, #000428, #1b2735, #4b367c, #9b59b6, #ff6f91);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: 200% 200%;
+    animation: gradientMove 10s ease infinite;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #210643, #663dff);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.container {
+    text-align: center;
+    color: white;
+}
+.navbar {
+    background: black;
+}
+
+.navbar-brand {
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.75rem;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -105%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    transition: transform 0.5s ease;
+    z-index: -1;
+    animation: none;
+}
+
+.navbar-brand:hover::before {
+    left: 100%;
+    animation: shine 0.3s linear forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 105%;
+    }
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+#continueBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #663dff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#continueBtn:hover {
+    background: #210643;
+}
+.custom-btn {
+    background: linear-gradient(120deg, #4f4caf, #2e348b); /* Green gradient */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-image 0.3s ease, transform 0.2s ease;
+}
+.custom-btn:hover {
+    background: linear-gradient(120deg, #3e468e, #202069); 
+    transform: scale(1.05);
+}
+.custom-btn1 {
+    background: linear-gradient(120deg, #4CAF50, #2E8B57); /* Green gradient */
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-image 0.3s ease, transform 0.2s ease;
+}
+
+.custom-btn1:hover {
+    background: linear-gradient(120deg, #3E8E41, #20693A); 
+    transform: scale(1.05);
+}
+
+.custom-btn2 {
+    background-image: linear-gradient(120deg, #FFD700, #FFA500);
+    border: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-image 0.3s ease, transform 0.2s ease; /* Correct transition */
+}
+
+.custom-btn2:hover {
+    background-image: linear-gradient(120deg, #FFC107, #FF8C00); /* Darker yellow-orange gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+

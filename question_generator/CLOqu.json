@@ -1,0 +1,256 @@
+[
+  {
+    "question": "What are the differences between integers, floats, and booleans in Python?",
+    "clo": "Data Types",
+    "type": "theory"
+  },
+  {
+    "question": "Explain how Python handles type conversion between integers and floats during arithmetic operations.",
+    "clo": "Data Types",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `bool()` function in Python? Provide examples.",
+    "clo": "Data Types",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the immutability of integers, floats, and booleans in Python.",
+    "clo": "Data Types",
+    "type": "theory"
+  },
+  {
+    "question": "How does Python represent very large or very small floating-point numbers?",
+    "clo": "Data Types",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python program to check if a given number is an integer, a float, or a boolean.",
+    "clo": "Data Types",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python function that takes a float as input and returns its integer and boolean equivalents.",
+    "clo": "Data Types",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script to check if a given string input can be safely converted to a float or integer.",
+    "clo": "Data Types",
+    "type": "code"
+  },
+  {
+    "question": "Write a program to demonstrate how Python handles arithmetic operations involving integers, floats, and booleans.",
+    "clo": "Data Types",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python program to count the number of integers, floats, and booleans in a given list.",
+    "clo": "Data Types",
+    "type": "code"
+  },
+
+  {
+    "question": "What are the main differences between mutable and immutable data types? Provide examples using strings.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Explain the purpose of escape sequences in strings with examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What are string slicing and indexing in Python? Provide examples.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the performance implications of string concatenation in Python.",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between the `find()` and `index()` methods in Python strings?",
+    "clo": "Strings",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python function that takes a string and returns the number of vowels and consonants in it.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python program to reverse a string without using built-in reverse functions.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python program to check if a given string is a palindrome.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script that counts the occurrence of each word in a given string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python function that removes all duplicate characters from a string.",
+    "clo": "Strings",
+    "type": "code"
+  },
+
+  {
+    "question": "What are arithmetic operators in Python? List them with examples.",
+    "clo": "Arithmetic Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Explain operator precedence in Python with an example expression.",
+    "clo": "Arithmetic Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between floor division (`//`) and normal division (`/`) in Python?",
+    "clo": "Arithmetic Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss how Python handles modulo operations on negative numbers.",
+    "clo": "Arithmetic Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `pow()` function in Python? How is it different from the `**` operator?",
+    "clo": "Arithmetic Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python program to calculate the compound interest using arithmetic operations.",
+    "clo": "Arithmetic Operations",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python function that takes two numbers and performs all arithmetic operations on them, returning the results as a dictionary.",
+    "clo": "Arithmetic Operations",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python program to compute the factorial of a number using multiplication only.",
+    "clo": "Arithmetic Operations",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python script that solves a quadratic equation using arithmetic operations.",
+    "clo": "Arithmetic Operations",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python program to calculate the area of a triangle given its three sides using Heron's formula.",
+    "clo": "Arithmetic Operations",
+    "type": "code"
+  },
+
+  {
+    "question": "What are logical operators in Python? Provide examples of each.",
+    "clo": "Logical Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Discuss the precedence of logical operators compared to arithmetic operators in Python.",
+    "clo": "Logical Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What is short-circuit evaluation in logical operations? Provide an example.",
+    "clo": "Logical Operations",
+    "type": "theory"
+  },
+  {
+    "question": "How can logical operators be used with non-boolean values in Python?",
+    "clo": "Logical Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What are the common pitfalls when combining logical and conditional statements in Python?",
+    "clo": "Logical Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python function that takes two boolean inputs and returns the result of all three logical operations (`and`, `or`, `not`).",
+    "clo": "Logical Operations",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python program to determine if a given year is a leap year using logical operators.",
+    "clo": "Logical Operations",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python script to evaluate a given logical expression and return the result.",
+    "clo": "Logical Operations",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python program to check if a given number is divisible by both 3 and 5 using logical operators.",
+    "clo": "Logical Operations",
+    "type": "code"
+  },
+  {
+    "question": "Develop a Python function that checks if a user-entered string is neither empty nor a palindrome.",
+    "clo": "Logical Operations",
+    "type": "code"
+  },
+
+  {
+    "question": "What is the purpose of the `input()` function in Python? How does it handle user input?",
+    "clo": "Input/Output Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What is the difference between `print()` and `return` statements in Python?",
+    "clo": "Input/Output Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Explain how Python handles formatted output using f-strings and the `format()` method.",
+    "clo": "Input/Output Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What are the security considerations when accepting user input in Python?",
+    "clo": "Input/Output Operations",
+    "type": "theory"
+  },
+  {
+    "question": "What is the purpose of the `sys.stdin` and `sys.stdout` objects in Python?",
+    "clo": "Input/Output Operations",
+    "type": "theory"
+  },
+  {
+    "question": "Write a Python program to accept a user's name and age, then print a greeting message with their age in 5 years.",
+    "clo": "Input/Output Operations",
+    "type": "code"
+  },
+  {
+    "question": "Create a Python script that reads multiple lines of input until the user enters 'STOP', then prints the concatenated result.",
+    "clo": "Input/Output Operations",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python program to format and display a multiplication table for a user-provided number.",
+    "clo": "Input/Output Operations",
+    "type": "code"
+  },
+  {
+    "question": "Implement a Python script that accepts a CSV input from the user and prints it in a tabular format.",
+    "clo": "Input/Output Operations",
+    "type": "code"
+  },
+  {
+    "question": "Write a Python program that accepts a file path from the user and prints the contents of the file line by line.",
+    "clo": "Input/Output Operations",
+    "type": "code"
+  }
+]
