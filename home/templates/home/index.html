@@ -45,13 +45,12 @@
             <hr class="my-4">
             <p>Click below to learn more.</p>
             <a class="btn btn-primary btn-lg custom-btn1" href="{% url 'home:login' %}" role="button">Sign-In</a>
-            <a class="btn btn-primary btn-lg custom-btn2" href="#" role="button">Sign-Up</a>
-            <a class="btn btn-primary btn-lg custom-btn" href="{% url 'home:learnmore' %}" role="button">Learn More</a>
+            <a class="btn btn-primary btn-lg custom-btn2" href="{% url 'home:signup' %}" role="button">Sign-Up</a>
+            <a class="btn btn-primary btn-lg custom-btn" href="#" role="button">Learn More</a>
             <a class="btn btn-primary btn-lg custom-btn" href="{% url 'home:sandbox' %}" role="button">Sandbox</a> <!--temporary-->
         </div>
     </div>
     <script>
-        // Remove welcome screen after the animation completes
         document.addEventListener("DOMContentLoaded", () => {
             const welcomeScreen = document.getElementById("welcomeScreen");
             const continueBtn = document.getElementById("continueBtn");
@@ -59,7 +58,7 @@
                 welcomeScreen.style.animation = "slide-up 1.25s ease-in-out forwards";
                 setTimeout(() => {
                     welcomeScreen.style.display = "none";
-                }, 2000); // Matches the animation duration (2 seconds)
+                }, 2000);
             });
         });
     </script>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Classes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            background: linear-gradient(120deg, #000428, #1b2735, #4b367c, #9b59b6, #ff6f91);
+            background-size: 400% 400%;
+            animation: gradientMove 10s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .form-container {
+            margin-top: 20px;
+            width: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            background-color: #ff6f91;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e65c81;
+        }
+
+        .messages {
+            margin-top: 10px;
+            color: yellow;
+            font-weight: bold;
+        }
+        .classes {
+            background: rgba(255, 255, 255, 0.1); /* Translucent white */
+            backdrop-filter: blur(10px); /* Glass effect */
+            color: white;
+            font-weight: bold;
+            border: 2px solid rgba(255, 255, 255, 0.2); /* Light border */
+            border-radius: 15px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .classes:hover {
+            background: rgba(255, 255, 255, 0.2); /* Slightly more visible on hover */
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Soft glow */
+            transform: translateY(-5px); /* Lift effect */
+        }
+        /* Navbar Styling */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+            padding: 15px 20px;
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ff6f91; /* Slight color change on hover */
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 20px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9671;
+            transform: scale(1.05);
+        }
+
+        /* Navbar Toggle Button for Mobile */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">GRADE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home:teacher_dashboard' %}" style="color: white;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3" href="{% url 'home:logout' %}" style="border-radius: 5px;">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h2>Manage Your Classes</h2>
+
+    <div class="messages">
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        {% for class in classes %}
+            {% if class.id %}
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <form action="{% url 'home:class_details' class.id %}" method="get" class="me-2">
+                        <button type="submit" class="option-box classes">
+                            {{ class.name }} (Code: {{ class.code }})
+                        </button>
+                    </form>
+                    <form method="post" action="{% url 'home:delete_class' class.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger btn-sm">🗑️</button>
+                    </form>
+                </div>
+            {% else %}
+                <p>{{ class.name }} (Code: {{ class.code }}) - Class not fully saved yet</p>
+            {% endif %}
+        {% empty %}
+            <p>No classes created yet.</p>
+        {% endfor %}
+    </div>    
+    
+
+    <div class="form-container">
+        <h3>Create a New Class</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Class</button>
+        </form>
+    </div>
+</body>
+</html>

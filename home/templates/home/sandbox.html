@@ -4,169 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRADE</title>
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    <title>Evaluation Sandbox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="{% static 'css/sandbox.css' %}" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        .navbar {
+            background: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+            padding: 15px 20px;
+            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 1.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ff6f91; /* Slight color change on hover */
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 20px;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ff9671;
+            transform: scale(1.05);
+        }
+
+        /* Navbar Toggle Button for Mobile */
+        .navbar-toggler {
+            border: none;
+            outline: none;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
 
-{% block content %}
-<div class="container mt-5">
-    <h2 class="text-center mb-4" style="text-align: center; color: white; font-weight: bold;">Sandbox</h2>
-    <form id="sandboxForm" method="POST" class="d-flex flex-column align-items-center">
-        {% csrf_token %}
-        <div class="mb-3 w-50">
-            <label for="numQuestions" class="form-label" style="text-align: center; color: white; font-weight: bold;">Number of Questions</label>
-            <input type="number" id="numQuestions" name="num_questions" class="form-control" min="1" required>
+    <!-- ✅ Navbar (Same as the rest of your website) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">GRADE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home:teacher_dashboard' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-danger text-white px-3" href="{% url 'home:logout' %}" style="border-radius: 5px;">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="questionsContainer" class="d-flex flex-wrap justify-content-center gap-3"></div>
-        <button id="generateBtn" type="submit" class="btn btn-primary mt-4">Generate Questions</button>
-    </form>
-    <div id="loadingIndicator" class="text-center mt-3" style="display: none;">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+    </nav>
+
+    <!-- ✅ Main Container -->
+    <div class="container mt-5">
+        <h2 class="text-center">Sandbox Evaluation</h2>
+        
+        <!-- ✅ File Upload Form -->
+        <form id="sandboxForm" method="POST" enctype="multipart/form-data" class="d-flex flex-column align-items-center">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="assignmentFile" class="form-label">Upload Assignment (PDF)</label>
+                <input type="file" id="assignmentFile" name="assignmentFile" class="form-control" accept=".pdf" required>
+            </div>
+            <button id="evaluateBtn" type="submit" class="btn btn-primary mt-3">Evaluate</button>
+        </form>
+
+        <!-- ✅ Loading Indicator -->
+        <div id="loadingIndicator" class="text-center mt-3" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Evaluating...</span>
+            </div>
+            <p>Evaluating answers, please wait...</p>
         </div>
-        <p style="color: white; font-weight: bold;">Generating questions, please wait...</p>
+
+        <!-- ✅ Evaluation Results Table -->
+        <div id="evaluationResults" class="mt-5">
+            {% if results %}
+                <h3 class="text-center">Evaluation Results</h3>
+                <table class="table table-bordered text-white" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                    <thead>
+                        <tr>
+                            <th>Answer</th>
+                            <th>Category</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ result.answer }}</td>
+                                <td>{{ result.category }}</td>
+                                <td>{{ result.score }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center">No evaluation results available.</p>
+            {% endif %}
+        </div>
     </div>
-    <div id="generatedQuestions" class="mt-5"></div>
-    <button id="downloadPdfBtn" class="btn btn-success mt-3" style="display: none;">Download PDF</button>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-document.getElementById("numQuestions").addEventListener("input", function () {
-    const num = parseInt(this.value) || 0;
-    const container = document.getElementById("questionsContainer");
-    container.innerHTML = "";
 
-    for (let i = 0; i < num; i++) {
-        const card = document.createElement("div");
-        card.classList.add("card", "p-3", "shadow-sm");
-        card.style.width = "300px";
-        card.innerHTML = `
-            <div class="mb-3">
-                <label for="clo_${i}" class="form-label">CLO</label>
-                <select id="clo_${i}" name="clo_${i}" class="form-control">
-                    <option value="Data Types">Data Types</option>
-                    <option value="Strings">Strings</option>
-                    <option value="Arithmetic Operations">Arithmetic Operations</option>
-                    <option value="Logical Operations">Logical Operations</option>
-                    <option value="Input/Output Operations">Input/Output Operations</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="type_${i}" class="form-label">Type</label>
-                <select id="type_${i}" name="type_${i}" class="form-control">
-                    <option value="code">Code</option>
-                    <option value="theory">Theory</option>
-                </select>
-            </div>
-        `;
-        container.appendChild(card);
-    }
-});
-
-document.getElementById("sandboxForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const generateBtn = document.getElementById("generateBtn");
-    const loadingIndicator = document.getElementById("loadingIndicator");
-
-    generateBtn.disabled = true;
-    loadingIndicator.style.display = "block";
-
-    try {
-        const formData = new FormData(this);
-        const response = await fetch("{% url 'home:sandbox' %}", {
-            method: "POST",
-            body: formData,
+    <!-- ✅ Prevent Multiple Submissions -->
+    <script>
+        document.getElementById("sandboxForm").addEventListener("submit", function () {
+            document.getElementById("evaluateBtn").disabled = true;
+            document.getElementById("loadingIndicator").style.display = "block";
         });
-
-        if (!response.ok) {
-            throw new Error("Failed to fetch data. Please try again.");
-        }
-
-        const data = await response.json();
-        const generatedQuestions = document.getElementById("generatedQuestions");
-
-        generatedQuestions.innerHTML = `
-            <h4 class="text-center">Generated Questions:</h4>
-            <div class="card p-3 shadow-lg mt-3">
-                ${data.questions
-                    .map((q, index) => `<p><strong>${index + 1}.</strong> ${q}</p>`)
-                    .join("")}
-            </div>
-        `;
-
-        // Show the download PDF button
-        const downloadPdfBtn = document.getElementById("downloadPdfBtn");
-        downloadPdfBtn.style.display = "block";
-
-        downloadPdfBtn.onclick = function () {
-        const { jsPDF } = window.jspdf; // Access jsPDF from the namespace
-        if (!jsPDF) {
-            alert("jsPDF is not loaded properly.");
-            return;
-        }
-
-        const pdf = new jsPDF();
-        const fileName = prompt("Enter a name for your PDF file", "questions") || "questions";
-
-        // Extract questions while keeping them as single units
-        const questions = Array.from(document.querySelectorAll('#generatedQuestions p'))
-            .map((p) => p.textContent.trim());
-
-        if (questions.length === 0) {
-            alert("No content available to generate the PDF.");
-            return;
-        }
-
-        // Set custom font and font size
-        pdf.setFont("times", "normal"); // Times New Roman
-        pdf.setFontSize(12); // Reduced font size for readability
-
-        const questionSpacing = 12; // Spacing between questions
-        const lineSpacing = 6; // Spacing between lines within a question
-        let y = 20; // Initial y-coordinate for the text
-        const pageHeight = 280; // Page height for A4 size
-
-        // Loop through each question
-        questions.forEach((question, index) => {
-            // Format the question with its number
-            const formattedQuestion = `${index + 1}. ${question}`;
-
-            // Split text into lines to handle long content
-            const lines = pdf.splitTextToSize(formattedQuestion, 180); // Wrap text at 180 units
-
-            // Check if adding this question exceeds the page height
-            if (y + lines.length * lineSpacing + questionSpacing > pageHeight) {
-                pdf.addPage(); // Add a new page if necessary
-                y = 20; // Reset y for new page
-            }
-
-            // Add each line of the question to the PDF
-            lines.forEach((line) => {
-                pdf.text(line, 10, y);
-                y += lineSpacing; // Tight spacing between lines of the same question
-            });
-
-            y += questionSpacing; // Extra space after the question
-        });
-
-        // Save the PDF with the user-provided file name
-        pdf.save(`${fileName}.pdf`);
-    };
-    } catch (error) {
-        alert(error.message);
-    } finally {
-        generateBtn.disabled = false;
-        loadingIndicator.style.display = "none";
-    }
-});
-</script>
-{% endblock %}
-
+    </script>
 </body>
 </html>

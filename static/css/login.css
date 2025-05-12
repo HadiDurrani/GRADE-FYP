@@ -89,7 +89,7 @@
   /* modules/anchor.css */
   
   :root {
-	--anchorColor: #eee;
+	--anchorColor: #434a52;
   }
   
   a {
@@ -147,7 +147,7 @@
   
   :root {
 	--loginBorderRadus: 0.25rem;
-	--loginColor: #eee;
+	--loginColor: #434a52;
   
 	--loginInputBackgroundColor: #3b4148;
 	--loginInputHoverBackgroundColor: #434a52;
@@ -155,7 +155,7 @@
 	--loginLabelBackgroundColor: #363b41;
   
 	--loginSubmitBackgroundColor: #ea4c88;
-	--loginSubmitColor: #eee;
+	--loginSubmitColor: #434a52;
 	--loginSubmitHoverBackgroundColor: #d44179;
   }
   
@@ -203,7 +203,23 @@
   .login input[type="submit"]:hover {
 	background-color: var(--loginSubmitHoverBackgroundColor);
   }
-  
+
+  .toggle-password {
+    background: none;
+    border: none;
+    color: #434a52;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-left: 0.5rem;
+    padding: 0;
+    text-transform: uppercase;
+  }
+ .toggle-password:hover {
+    text-decoration: underline;
+  }
+
+
+
   /* modules/text.css */
   
   p {
